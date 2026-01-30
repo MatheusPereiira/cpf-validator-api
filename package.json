@@ -1,0 +1,28 @@
+{
+  "name": "cpf-validator-api",
+  "version": "1.0.0",
+  "description": "API simples para validação de CPF utilizando Node.js e Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "cpf",
+    "api",
+    "nodejs",
+    "express",
+    "validador"
+  ],
+  "author": "Matheus Pereira",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}
