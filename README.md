@@ -13,3 +13,8 @@ O projeto tem como objetivo servir como base de estudo e portfólio, demonstrand
 - Git & GitHub
 
 ---
+
+## Nota
+Este README é provisório e será expandido com mais detalhes, exemplos e melhorias conforme a evolução do projeto.
+
+---
