@@ -5,17 +5,22 @@ function validar(req, res) {
 
   if (!cpf) {
     return res.status(400).json({
-      status: 'error',
-      message: 'CPF não informado'
+      success: false,
+      error: {
+        message: 'CPF não informado'
+      }
     });
   }
 
-  const valido = validarCPF(cpf);
+  const cpfLimpo = cpf.replace(/\D/g, '');
+  const valido = validarCPF(cpfLimpo);
 
   return res.json({
-    status: 'ok',
-    cpf,
-    valido
+    success: true,
+    data: {
+      cpf: cpfLimpo,
+      valid: valido
+    }
   });
 }
 
