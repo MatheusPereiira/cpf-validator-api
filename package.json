@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "test": "echo \"No tests specified\" && exit 0"
+    "test": "cross-env NODE_ENV=test jest --runInBand"
   },
   "keywords": [
     "cpf",
@@ -19,7 +19,10 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "nodemon": "^3.1.11"
+    "cross-env": "^10.1.0",
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.11",
+    "supertest": "^7.2.2"
   },
   "dependencies": {
     "cors": "^2.8.6",
