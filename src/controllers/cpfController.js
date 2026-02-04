@@ -1,10 +1,11 @@
 const AppError = require('../utils/AppError');
-const validarCPF = require('../services/cpfService');
+const { validarCPF } = require('../services/cpfService');
 
 function validar(req, res, next) {
   try {
     const { cpf } = req.query;
 
+    // CPF não informado
     if (!cpf) {
       throw new AppError(
         'CPF não informado',
@@ -13,8 +14,10 @@ function validar(req, res, next) {
       );
     }
 
+    // Remove caracteres não numéricos
     const cpfLimpo = cpf.replace(/\D/g, '');
 
+    // Caracteres inválidos
     if (!/^\d+$/.test(cpfLimpo)) {
       throw new AppError(
         'CPF contém caracteres inválidos',
@@ -23,6 +26,7 @@ function validar(req, res, next) {
       );
     }
 
+    // Tamanho inválido
     if (cpfLimpo.length !== 11) {
       throw new AppError(
         'CPF deve conter 11 dígitos',
@@ -31,6 +35,7 @@ function validar(req, res, next) {
       );
     }
 
+    // Validação matemática
     const valido = validarCPF(cpfLimpo);
 
     if (!valido) {
@@ -41,13 +46,15 @@ function validar(req, res, next) {
       );
     }
 
-    return res.json({
+    // Sucesso
+    return res.status(200).json({
       success: true,
       data: {
         cpf: cpfLimpo,
         valid: true
       }
     });
+
   } catch (err) {
     return next(err);
   }
