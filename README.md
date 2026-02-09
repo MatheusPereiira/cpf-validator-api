@@ -12,7 +12,7 @@ O projeto tem como objetivo servir como base de estudo e portfólio, demonstrand
 - Express
 - JavaScript
 - Git & GitHub
-
+- HTML & CSS
 ---
 
 ## Nota:
