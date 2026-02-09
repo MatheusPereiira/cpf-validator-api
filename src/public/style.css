@@ -1,0 +1,89 @@
+/* public/style.css */
+
+:root {
+    --bg-color: #121212;
+    --card-color: #1e1e1e;
+    --text-color: #e0e0e0;
+    --accent-green: #00e676; /* Verde Neon */
+    --accent-red: #ff1744;   /* Vermelho Neon */
+    --glow-green: 0 0 20px rgba(0, 230, 118, 0.4);
+    --glow-red: 0 0 20px rgba(255, 23, 68, 0.4);
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Fundo com gradiente sutil */
+body::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 60%);
+    z-index: -1;
+}
+
+.container {
+    background-color: var(--card-color);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: center;
+    width: 350px;
+    transition: all 0.4s ease;
+    border: 1px solid #333;
+    position: relative;
+}
+
+h1 { margin-bottom: 0.5rem; letter-spacing: 1px; }
+.subtitle { font-size: 0.9rem; color: #888; margin-bottom: 2rem; }
+
+input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.4rem;
+    border: 2px solid #333;
+    background-color: #252525;
+    color: #fff;
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: none;
+    text-align: center;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    font-family: monospace;
+}
+
+input:focus { border-color: #555; }
+
+/* Classes de Estado (Glow) */
+.container.valid { border-color: var(--accent-green); box-shadow: var(--glow-green); }
+.container.invalid { border-color: var(--accent-red); box-shadow: var(--glow-red); }
+
+.input-valid { color: var(--accent-green); border-color: var(--accent-green) !important; }
+.input-invalid { color: var(--accent-red); border-color: var(--accent-red) !important; }
+
+/* Área de Resultado */
+#status {
+    margin-top: 20px;
+    height: 40px; /* Mantém a altura fixa */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+#status.show { opacity: 1; transform: translateY(0); }
